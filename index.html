@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="form">
+        <table>
+            <tr>
+                <td>
+                    <label>Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="name" onkeyup="form()">
+                    <span id="nameError" class="mainerror"></span>
+                </td>
+            </tr>
+          
+            <tr>
+                <td>
+                    <label>Email:</label>
+                </td>
+                <td><input type="text" id="email" onkeyup="form()" >
+                    <span id="emailError" class="mainerror"></span>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label>Password:</label>
+                </td>
+                <td><input type="password" id="password" onkeyup="form()">
+                    <span id="passwordError" class="mainerror"></span>
+                </td>
+            </tr>
+           
+            <tr>
+                <td></td>
+                <td><button type="button" id="submitBtn"  onclick="form()"  disabled >Submit</button></td>
+            </tr>
+
+
+        </table>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
