@@ -1,58 +1,85 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<meta charset="UTF-8">
+<title>Character Counter</title>
 
+<style>
+
+body{
+    font-family: Arial;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.container{
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+textarea{
+    width: 350px;
+    height: 120px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#counter{
+    margin-top: 10px;
+}
+
+#warning{
+    color: red;
+    font-weight: bold;
+}
+
+</style>
 </head>
 
 <body>
 
-    <h2>Registration Form</h2>
+<div class="container">
 
-    <form id="form">
-        <table>
-            <tr>
-                <td>
-                    <label>Name:</label>
-                </td>
-                <td>
-                    <input type="text" id="name" onkeyup="form()">
-                    <span id="nameError" class="mainerror"></span>
-                </td>
-            </tr>
-          
-            <tr>
-                <td>
-                    <label>Email:</label>
-                </td>
-                <td><input type="text" id="email" onkeyup="form()" >
-                    <span id="emailError" class="mainerror"></span>
-                </td>
-            </tr>
-           
-            <tr>
-                <td>
-                    <label>Password:</label>
-                </td>
-                <td><input type="password" id="password" onkeyup="form()">
-                    <span id="passwordError" class="mainerror"></span>
-                </td>
-            </tr>
-           
-            <tr>
-                <td></td>
-                <td><button type="button" id="submitBtn"  onclick="form()"  disabled >Submit</button></td>
-            </tr>
+<h2>Message Box</h2>
+<p>200 characters max</p>
 
+<textarea id="message" maxlength="200" placeholder="Type your message..."></textarea>
 
-        </table>
-    </form>
+<p id="counter">0 / 200 characters</p>
+<p id="warning"></p>
 
-    <script src="script.js"></script>
+</div>
+
+<script>
+
+const textarea = document.getElementById("message");
+const counter = document.getElementById("counter");
+const warning = document.getElementById("warning");
+
+const maxLength = 200;
+
+textarea.addEventListener("input", function(){
+
+    let currentLength = textarea.value.length;
+
+    counter.textContent = currentLength + " / " + maxLength + " characters";
+
+    if(currentLength >= maxLength){
+        warning.textContent = "Character limit reached!";
+    } else {
+        warning.textContent = "";
+    }
+
+});
+
+</script>
 
 </body>
-
 </html>
